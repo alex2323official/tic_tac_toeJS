@@ -13,8 +13,6 @@ const createGameBoard = (function () {
   };
 
   const showGameBoard = function () {
-    startGameBoard();
-
     //   loop trough array and create divs for each of one
     GameBoard.forEach((item, index) => {
       const newDiv = document.createElement("div");
@@ -24,10 +22,19 @@ const createGameBoard = (function () {
     });
   };
 
+  const refreshGameBoard = function () {
+    gameContainerDiv.innerHTML = "";
+    showGameBoard();
+  };
+
   const scrnUptade = function () {
     gameContainerDiv.addEventListener("click", (item) => {
-      console.log(item.target.id);
+      let id = item.target.id;
       if (player1round) {
+        GameBoard[id] = "X";
+        console.table(GameBoard);
+        // Restore here GAMEBOARD!!!
+        refreshGameBoard();
       }
     });
   };
@@ -39,6 +46,7 @@ const createGameBoard = (function () {
 
     // public methods
     startUI: function () {
+      startGameBoard();
       showGameBoard();
     },
     runScrnUpdate: function () {

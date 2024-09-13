@@ -3,7 +3,14 @@ const createGameBoard = (function () {
   // PRIVATE
   const GameBoard = [];
   const gameContainerDiv = document.querySelector("#game-container");
+  const formBtn = document.querySelector("#formBtn");
+  const player1NameDiv = document.querySelector("#player1");
+  const player2NameDiv = document.querySelector("#player2");
   let player1round = true; // X for 1 Player
+  let username1 = "Tomek";
+  let username2 = "Adam";
+  let player1Score = 0;
+  let player2Score = 0;
 
   const startGameBoard = function () {
     // push starting state to every GameBoard index
@@ -112,6 +119,17 @@ const createGameBoard = (function () {
     }
   };
 
+  const changeUserNamesOnClick = function () {
+    formBtn.addEventListener("click", (item) => {
+      console.log(item.target);
+    });
+  };
+
+  const updateUserName = function () {
+    player1NameDiv.textContent = `${username1} score: ${player1Score}`;
+    player2NameDiv.textContent = `${username2} score: ${player2Score}`;
+  };
+
   // PUBLIC API (returned object)
   return {
     // public variables
@@ -119,11 +137,15 @@ const createGameBoard = (function () {
 
     // public methods
     startUI: function () {
+      updateUserName();
       startGameBoard();
       showGameBoard();
     },
     runScrnUpdate: function () {
       scrnUptade();
+    },
+    runChangeUsermanUpdate: function () {
+      changeUserNamesOnClick();
     },
   };
 })();
@@ -131,3 +153,4 @@ const createGameBoard = (function () {
 // TESTING HERE
 createGameBoard.startUI();
 createGameBoard.runScrnUpdate();
+createGameBoard.runChangeUsermanUpdate();

@@ -1,18 +1,21 @@
 // IIFE Module Pattern thingy
 const createGameBoard = (function () {
   // PRIVATE
-  const GameBoard = [];
+  let GameBoard = [];
   const gameContainerDiv = document.querySelector("#game-container");
   const formBtn = document.querySelector("#formBtn");
   const player1NameDiv = document.querySelector("#player1");
   const player2NameDiv = document.querySelector("#player2");
+  const form = document.querySelector(".form");
   let player1round = true; // X for 1 Player
-  let username1 = "Tomek";
-  let username2 = "Adam";
+  let username1 = "Player 1";
+  let username2 = "Player 2";
   let player1Score = 0;
   let player2Score = 0;
 
   const startGameBoard = function () {
+    // clean old GambeBoard
+    GameBoard = [];
     // push starting state to every GameBoard index
     for (let i = 0; i <= 8; i++) {
       GameBoard.push("?");
@@ -41,11 +44,13 @@ const createGameBoard = (function () {
         GameBoard[id] = "X";
         refreshGameBoard();
         checkForVictory();
+        updateUserName();
         player1round = false;
       } else {
         GameBoard[id] = "O";
         refreshGameBoard();
         checkForVictory();
+        updateUserName();
         player1round = true;
       }
     });
@@ -54,74 +59,125 @@ const createGameBoard = (function () {
   const checkForVictory = function () {
     // check for player1 to win
     if (GameBoard[0] == "X" && GameBoard[1] == "X" && GameBoard[2] == "X") {
-      console.log("Player 1 Victory!");
+      player1Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[0] == "X" && GameBoard[4] == "X" && GameBoard[8] == "X") {
-      console.log("Player 1 Victory!");
+      player1Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[3] == "X" && GameBoard[4] == "X" && GameBoard[5] == "X") {
-      console.log("Player 1 Victory!");
+      player1Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[6] == "X" && GameBoard[7] == "X" && GameBoard[8] == "X") {
-      console.log("Player 1 Victory!");
+      player1Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[0] == "X" && GameBoard[3] == "X" && GameBoard[6] == "X") {
-      console.log("Player 1 Victory!");
+      player1Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[2] == "X" && GameBoard[5] == "X" && GameBoard[8] == "X") {
-      console.log("Player 1 Victory!");
+      player1Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[1] == "X" && GameBoard[4] == "X" && GameBoard[7] == "X") {
-      console.log("Player 1 Victory!");
+      player1Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[2] == "X" && GameBoard[4] == "X" && GameBoard[6] == "X") {
-      console.log("Player 1 Victory!");
+      player1Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     // check for player2 to win
     if (GameBoard[0] == "O" && GameBoard[1] == "O" && GameBoard[2] == "O") {
-      console.log("Player 2 Victory!");
+      player2Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[0] == "O" && GameBoard[4] == "O" && GameBoard[8] == "O") {
-      console.log("Player 2 Victory!");
+      player2Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[3] == "O" && GameBoard[4] == "O" && GameBoard[5] == "O") {
-      console.log("Player 2 Victory!");
+      player2Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[6] == "O" && GameBoard[7] == "O" && GameBoard[8] == "O") {
-      console.log("Player 2 Victory!");
+      player2Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[0] == "O" && GameBoard[3] == "O" && GameBoard[6] == "O") {
-      console.log("Player 2 Victory!");
+      player2Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[2] == "O" && GameBoard[5] == "O" && GameBoard[8] == "O") {
-      console.log("Player 2 Victory!");
+      player2Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[1] == "O" && GameBoard[4] == "O" && GameBoard[7] == "O") {
-      console.log("Player 2 Victory!");
+      player2Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
 
     if (GameBoard[2] == "O" && GameBoard[4] == "O" && GameBoard[6] == "O") {
-      console.log("Player 2 Victory!");
+      player2Score++;
+      startGameBoard();
+      refreshGameBoard();
     }
   };
 
   const changeUserNamesOnClick = function () {
     formBtn.addEventListener("click", (item) => {
-      console.log(item.target);
+      // TODO: take input and use updateUserName()
+      let tempUsername1 = document.querySelector("#name1").value;
+      let tempUsername2 = document.querySelector("#name2").value;
+
+      if (tempUsername1 != "" && tempUsername2 == "") {
+        username1 = tempUsername1;
+      }
+
+      if (tempUsername1 == "" && tempUsername2 != "") {
+        username2 = tempUsername2;
+      }
+
+      if (tempUsername1 != "" && tempUsername2 != "") {
+        username1 = tempUsername1;
+        username2 = tempUsername2;
+        form.innerHTML = "";
+        form.style.backgroundColor = "white";
+      }
+
+      updateUserName();
     });
   };
 

@@ -32,8 +32,9 @@ const createGameBoard = (function () {
       let id = item.target.id;
       if (player1round) {
         GameBoard[id] = "X";
-        console.table(GameBoard);
-        // Restore here GAMEBOARD!!!
+        refreshGameBoard();
+      } else {
+        GameBoard[id] = "O";
         refreshGameBoard();
       }
     });

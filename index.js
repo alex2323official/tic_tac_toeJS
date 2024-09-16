@@ -40,13 +40,17 @@ const createGameBoard = (function () {
   const scrnUptade = function () {
     gameContainerDiv.addEventListener("click", (item) => {
       let id = item.target.id;
-      if (player1round) {
+      if (player1round && GameBoard[id] != "X" && GameBoard[id] != "O") {
         GameBoard[id] = "X";
         refreshGameBoard();
         checkForVictory();
         updateUserName();
         player1round = false;
-      } else {
+      } else if (
+        !player1round &&
+        GameBoard[id] != "X" &&
+        GameBoard[id] != "O"
+      ) {
         GameBoard[id] = "O";
         refreshGameBoard();
         checkForVictory();

@@ -6,6 +6,6 @@ const GameBoardInstance = GameBoard();
 const Player1 = Player();
 const GameFlowInstance = GameFlow();
 
-console.log(GameBoardInstance.test);
-console.log(Player1.test);
-console.log(GameFlowInstance.test);
+// App
+GameBoardInstance.startGameBoard();
+GameBoardInstance.showGameBoard();

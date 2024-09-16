@@ -1,8 +1,8 @@
 // IIFE Module Pattern thingy
 const createGameBoard = (function () {
   // PRIVATE
-  let GameBoard = [];
-  const gameContainerDiv = document.querySelector("#game-container");
+  // let GameBoard = [];
+  // const gameContainerDiv = document.querySelector("#game-container");
   const formBtn = document.querySelector("#formBtn");
   const player1NameDiv = document.querySelector("#player1");
   const player2NameDiv = document.querySelector("#player2");
@@ -14,24 +14,24 @@ const createGameBoard = (function () {
   let player2Score = 0;
   let roundCounter = 0;
 
-  const startGameBoard = function () {
-    // clean old GambeBoard
-    GameBoard = [];
-    // push starting state to every GameBoard index
-    for (let i = 0; i <= 8; i++) {
-      GameBoard.push("?");
-    }
-  };
+  // const startGameBoard = function () {
+  //   // clean old GambeBoard
+  //   GameBoard = [];
+  //   // push starting state to every GameBoard index
+  //   for (let i = 0; i <= 8; i++) {
+  //     GameBoard.push("?");
+  //   }
+  // };
 
-  const showGameBoard = function () {
-    //   loop trough array and create divs for each of one
-    GameBoard.forEach((item, index) => {
-      const newDiv = document.createElement("div");
-      newDiv.textContent = item;
-      newDiv.id = index;
-      gameContainerDiv.appendChild(newDiv);
-    });
-  };
+  // const showGameBoard = function () {
+  //   //   loop trough array and create divs for each of one
+  //   GameBoard.forEach((item, index) => {
+  //     const newDiv = document.createElement("div");
+  //     newDiv.textContent = item;
+  //     newDiv.id = index;
+  //     gameContainerDiv.appendChild(newDiv);
+  //   });
+  // };
 
   const refreshGameBoard = function () {
     gameContainerDiv.innerHTML = "";

@@ -12,6 +12,7 @@ const createGameBoard = (function () {
   let username2 = "Player 2";
   let player1Score = 0;
   let player2Score = 0;
+  let roundCounter = 0;
 
   const startGameBoard = function () {
     // clean old GambeBoard
@@ -57,6 +58,16 @@ const createGameBoard = (function () {
         updateUserName();
         player1round = true;
       }
+
+      roundCounter++;
+      console.log(roundCounter);
+
+      // check for 9 rounds without win
+      if (roundCounter >= 9) {
+        startGameBoard();
+        refreshGameBoard();
+        roundCounter = 0;
+      }
     });
   };
 
@@ -66,48 +77,56 @@ const createGameBoard = (function () {
       player1Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[0] == "X" && GameBoard[4] == "X" && GameBoard[8] == "X") {
       player1Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[3] == "X" && GameBoard[4] == "X" && GameBoard[5] == "X") {
       player1Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[6] == "X" && GameBoard[7] == "X" && GameBoard[8] == "X") {
       player1Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[0] == "X" && GameBoard[3] == "X" && GameBoard[6] == "X") {
       player1Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[2] == "X" && GameBoard[5] == "X" && GameBoard[8] == "X") {
       player1Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[1] == "X" && GameBoard[4] == "X" && GameBoard[7] == "X") {
       player1Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[2] == "X" && GameBoard[4] == "X" && GameBoard[6] == "X") {
       player1Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     // check for player2 to win
@@ -115,48 +134,56 @@ const createGameBoard = (function () {
       player2Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[0] == "O" && GameBoard[4] == "O" && GameBoard[8] == "O") {
       player2Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[3] == "O" && GameBoard[4] == "O" && GameBoard[5] == "O") {
       player2Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[6] == "O" && GameBoard[7] == "O" && GameBoard[8] == "O") {
       player2Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[0] == "O" && GameBoard[3] == "O" && GameBoard[6] == "O") {
       player2Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[2] == "O" && GameBoard[5] == "O" && GameBoard[8] == "O") {
       player2Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[1] == "O" && GameBoard[4] == "O" && GameBoard[7] == "O") {
       player2Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
 
     if (GameBoard[2] == "O" && GameBoard[4] == "O" && GameBoard[6] == "O") {
       player2Score++;
       startGameBoard();
       refreshGameBoard();
+      roundCounter = 0;
     }
   };
 

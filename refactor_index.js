@@ -9,3 +9,4 @@ const GameFlowInstance = GameFlow();
 // App
 GameBoardInstance.startGameBoard();
 GameBoardInstance.showGameBoard();
+GameBoardInstance.refreshGameBoard();

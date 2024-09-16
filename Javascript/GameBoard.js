@@ -24,5 +24,9 @@ export function GameBoard() {
         gameContainerDiv.appendChild(newDiv);
       });
     },
+    refreshGameBoard: function () {
+      gameContainerDiv.innerHTML = "";
+      this.showGameBoard();
+    },
   };
 }

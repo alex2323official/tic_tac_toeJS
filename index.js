@@ -33,10 +33,10 @@ const createGameBoard = (function () {
   //   });
   // };
 
-  const refreshGameBoard = function () {
-    gameContainerDiv.innerHTML = "";
-    showGameBoard();
-  };
+  // const refreshGameBoard = function () {
+  //   gameContainerDiv.innerHTML = "";
+  //   showGameBoard();
+  // };
 
   const scrnUptade = function () {
     gameContainerDiv.addEventListener("click", (item) => {
